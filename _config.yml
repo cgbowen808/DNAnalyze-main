@@ -1,0 +1,33 @@
+title: Gentelella Jekyll Site
+email: your-email@example.com
+description: >-
+  A Jekyll-powered version of the Gentelella Admin Template.
+  Customized for GitHub Pages deployment.
+baseurl: ""
+url: "https://yourusername.github.io"
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude these files from Jekyll processing
+exclude:
+  - node_modules
+  - gulpfile.js
+  - package.json
+  - bower.json
+  - .gitignore
+  - README.md
+  - LICENSE.txt
+  - documentation/
+
+# Collections (if needed)
+collections:
+  examples:
+    output: true
+
+# Permalinks (adjust as needed)
+permalink: pretty
