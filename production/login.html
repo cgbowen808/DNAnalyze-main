@@ -19,26 +19,30 @@
     <input type="password" id="login-password" placeholder="Enter password">
     <button onclick="login()">Login</button>
 
-<!-- Firebase SDK (Correct order) -->
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <!-- Firebase SDK (Use UMD version, not ES Modules) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
 
-<!-- Firebase Config -->
-<script src="firebase-config.js"></script>
+    <!-- Firebase Config -->
+    <script src="firebase-config.js"></script>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        if (!window.FIREBASE_CONFIG) {
-            console.error("🚨 Firebase config is missing or not loaded.");
-        } else {
-            console.log("✅ Firebase Config Loaded:", window.FIREBASE_CONFIG);
-            firebase.initializeApp(window.FIREBASE_CONFIG);
-            console.log("✅ Firebase Initialized Successfully");
-        }
-    });
-</script>
-
-
+    <!-- Firebase Initialization & Login Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (!window.FIREBASE_CONFIG) {
+                console.error("🚨 Firebase config is missing or not loaded.");
+            } else {
+                console.log("✅ Firebase Config Loaded:", window.FIREBASE_CONFIG);
+                
+                // Ensure Firebase is properly initialized
+                if (typeof firebase !== "undefined") {
+                    firebase.initializeApp(window.FIREBASE_CONFIG);
+                    console.log("✅ Firebase Initialized Successfully");
+                } else {
+                    console.error("🚨 Firebase SDK is not loaded properly.");
+                }
+            }
+        });
 
         function login() {
             const email = document.getElementById("login-email").value;
@@ -67,3 +71,4 @@
 
 </body>
 </html>
+
