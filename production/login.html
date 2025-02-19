@@ -19,12 +19,13 @@
     <input type="password" id="login-password" placeholder="Enter password">
     <button onclick="login()">Login</button>
 
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+<!-- Firebase SDK (Correct order) -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
 
-    <!-- Firebase Config (Fixed Path) -->
-    <script src="firebase-config.js"></script>
+<!-- Firebase Config -->
+<script src="firebase-config.js"></script>
+
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         if (!window.FIREBASE_CONFIG) {
@@ -36,6 +37,7 @@
         }
     });
 </script>
+
 
 
         function login() {
