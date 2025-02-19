@@ -37,15 +37,14 @@ jobs:
           echo "  appId: '${{ secrets.FIREBASE_APP_ID }}'" >> ./production/firebase-config.js
           echo "};" >> ./production/firebase-config.js
 
-       - name: Upload artifact
-    uses: actions/upload-pages-artifact@v3  # Indented correctly
-    with:                                   # Indented under "uses"
-      path: "."  # ✅ Correct indentation
-
-
-
+      - name: Upload artifact  # ✅ Upload the entire site, including `index.html`
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."  # ✅ Changed to load the entire site (not just `production/`)
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+
 
