@@ -19,17 +19,27 @@
     <input type="password" id="login-password" placeholder="Enter password">
     <button onclick="login()">Login</button>
 
-<!-- Firebase SDK (Use UMD version, not ES Modules) -->
-<script nomodule src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-<script nomodule src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+<!-- ✅ Load Firebase UMD Version (No import needed) -->
+<script src="https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.3.1/firebase-analytics.js"></script>
 
+<script>
+    // ✅ Initialize Firebase using the UMD global object
+    const firebaseConfig = {
+        apiKey: "YOUR_API_KEY",
+        authDomain: "YOUR_PROJECT.firebaseapp.com",
+        projectId: "YOUR_PROJECT_ID",
+        storageBucket: "YOUR_PROJECT.appspot.com",
+        messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+        appId: "YOUR_APP_ID",
+        measurementId: "YOUR_MEASUREMENT_ID"
+    };
 
+    firebase.initializeApp(firebaseConfig);
+    const analytics = firebase.analytics(); // ✅ Analytics now works
+</script>
 
-    <!-- Firebase Config -->
-    <script src="firebase-config.js"></script>
-
-    <!-- Firebase Initialization & Login Script -->
-    <script>
         document.addEventListener("DOMContentLoaded", function () {
             if (!window.FIREBASE_CONFIG) {
                 console.error("🚨 Firebase config is missing or not loaded.");
