@@ -25,17 +25,18 @@
 
     <!-- Firebase Config (Fixed Path) -->
     <script src="firebase-config.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        if (!window.FIREBASE_CONFIG) {
+            console.error("🚨 Firebase config is missing or not loaded.");
+        } else {
+            console.log("✅ Firebase Config Loaded:", window.FIREBASE_CONFIG);
+            firebase.initializeApp(window.FIREBASE_CONFIG);
+            console.log("✅ Firebase Initialized Successfully");
+        }
+    });
+</script>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            if (!window.FIREBASE_CONFIG) {
-                console.error("🚨 Firebase config is missing or not loaded.");
-            } else {
-                console.log("✅ Firebase Config Loaded:", window.FIREBASE_CONFIG);
-                firebase.initializeApp(window.FIREBASE_CONFIG);
-                console.log("✅ Firebase Initialized Successfully");
-            }
-        });
 
         function login() {
             const email = document.getElementById("login-email").value;
