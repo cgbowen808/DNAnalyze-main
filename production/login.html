@@ -19,9 +19,10 @@
     <input type="password" id="login-password" placeholder="Enter password">
     <button onclick="login()">Login</button>
 
-    <!-- Firebase SDK (Use UMD version, not ES Modules) -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <!-- Firebase SDK (Force UMD Version) -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js" nomodule></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js" nomodule></script>
+
 
     <!-- Firebase Config -->
     <script src="firebase-config.js"></script>
